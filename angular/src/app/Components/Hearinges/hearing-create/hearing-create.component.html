@@ -1,0 +1,28 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="onClose()">&times;</span>
+      <form [formGroup]="hearingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="caseId">case number:</label>
+          <select class="form-control" formControlName="caseId">
+            <option value="" selected>Select Case Number</option>
+            <option *ngFor="let case of cases" [value]="case.id">{{ case.number }}</option>
+          </select>
+        </div>
+        <div>
+          <!-- <mat-form-field appearance="fill">  -->
+             <label>date:</label>
+            <input matInput [matDatepicker]="picker" id="date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          <!-- </mat-form-field> -->
+        </div>
+        <div>
+          <label for="decision">decision:</label>
+          <input id="decision" formControlName="decision">
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  

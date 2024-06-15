@@ -1,0 +1,35 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="onClose()">&times;</span>
+      <form [formGroup]="lawyerForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name">lawyer name:</label>
+          <input id="name" formControlName="name">
+        </div>
+        <div>
+          <label for="specialization">specialization:</label>
+          <input id="specialization" formControlName="specialization">
+        </div>
+        <div>
+            <label for="Position">Position:</label>
+            <input id="Position" formControlName="Position">
+          </div>
+          <div>
+            <label for="Mobile">Mobile:</label>
+            <input id="Mobile" formControlName="Mobile">
+          </div>
+          <div>
+            <label for="Address">Address:</label>
+            <input id="Address" formControlName="Address">
+          </div>
+          <div>
+            <label for="lawyers">Cases :</label>
+            <select id="lawyers" formControlName="casesIds" class="form-control multi-select" multiple>
+              <option *ngFor="let case of Cases" [value]="case.id">{{ case.number }}</option>
+            </select>
+          </div>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  

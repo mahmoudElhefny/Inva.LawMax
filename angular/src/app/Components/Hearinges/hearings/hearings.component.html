@@ -1,0 +1,33 @@
+
+<div>
+    <h2>Cases</h2>
+    <button (click)="openPopup()" style="float: right;" class="btn btn-primary">Create Haering For Case</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Case Number</th>
+          <th>Case litigationDegree</th>
+          <th>date</th>
+          <th>Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hearingItem of Hearings">
+          <td>{{hearingItem.case.number}}</td>
+          <td>{{hearingItem.case.litigationDegree}}</td>
+          <td>{{hearingItem.date | date: 'yyyy-MM-dd'}}</td>
+          <td>{{ hearingItem.decision }}</td>         
+          <td>
+            <button (click)="openPopup(hearingItem)"    class="btn btn-warning">Edit</button>
+            <button  (click)="onDelete(hearingItem.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <mat-paginator [length]="totalCount" [pageSize]="paginationInput.maxResultCount" (page)="onPageChange($event)"></mat-paginator>
+    <app-hearing-create *ngIf="isPopupVisible" [hearingData]="currentHearing" (formSubmit)="handleFormSubmit($event)" (formClose)="closePopup()"></app-hearing-create>
+  </div>
+  
+  

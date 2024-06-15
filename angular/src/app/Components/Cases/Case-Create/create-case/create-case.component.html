@@ -1,0 +1,35 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="onClose()">&times;</span>
+      <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="number">Case Number:</label>
+          <input id="number" formControlName="number">
+        </div>
+        <div>
+          <!-- <mat-form-field appearance="fill">  -->
+             <label>Year</label>
+            <input matInput [matDatepicker]="picker" id="year" formControlName="YearDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          <!-- </mat-form-field> -->
+        </div>
+        <div>
+          <label for="litigationDegree">Litigation Degree:</label>
+          <input id="litigationDegree" formControlName="litigationDegree">
+        </div>
+        <div>
+          <label for="finalVerdict">Final Verdict:</label>
+          <input id="finalVerdict" formControlName="finalVerdict">
+        </div>
+        <div>
+          <label for="lawyers">Lawyers:</label>
+          <select id="lawyers" formControlName="lawyerIds" class="form-control multi-select" multiple>
+            <option *ngFor="let lawyer of lawyers" [value]="lawyer.id">{{ lawyer.name }}</option>
+          </select>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  

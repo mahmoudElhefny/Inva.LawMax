@@ -1,0 +1,35 @@
+
+  <div>
+    <h2>Cases</h2>
+    <button (click)="openPopup()" style="float: right;" class="btn btn-primary">Create Case</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Year</th>
+          <th>Litigation Degree</th>
+          <th>Final Verdict</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let caseItem of cases">
+          <td>{{ caseItem.number }}</td>
+          <td>{{ caseItem.yearDate }}</td>
+          <td>{{ caseItem.litigationDegree }}</td>
+          <td>{{ caseItem.finalVerdict }}</td>
+          <td>
+            <button (click)="openPopup(caseItem)"   class="btn btn-warning">Edit</button>
+            <button (click)="onDelete(caseItem.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <mat-paginator [length]="totalCount" [pageSize]="paginationInput.maxResultCount" (page)="onPageChange($event)"></mat-paginator>
+  
+    <app-create-case *ngIf="isPopupVisible" [caseData]="currentCase" (formSubmit)="handleFormSubmit($event)" (formClose)="closePopup()"></app-create-case>
+  </div>
+  
+  

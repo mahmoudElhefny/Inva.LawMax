@@ -1,0 +1,35 @@
+
+<div>
+    <h2>Lawyers</h2>
+    <button (click)="openPopup()" style="float: right;" class="btn btn-primary">Add New Lawyer</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Address</th>
+          <th>Mobile</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lawyerItem of lawyers">
+          <td>{{ lawyerItem.name }}</td>
+          <td>{{ lawyerItem.position }}</td>
+          <td>{{ lawyerItem.address }}</td>
+          <td>{{ lawyerItem.mobile}}</td>        
+          <td>
+            <button (click)="openPopup(lawyerItem)" class="btn btn-warning">Edit</button>
+            <button (click)="onDelete(lawyerItem.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <mat-paginator [length]="totalCount" [pageSize]="paginationInput.maxResultCount" (page)="onPageChange($event)"></mat-paginator>
+  
+    <app-create-lawyer *ngIf="isPopupVisible" [lawyerData]="currentLawyer" (formSubmit)="handleFormSubmit($event)" (formClose)="closePopup()"></app-create-lawyer>
+  </div>
+  
+  
