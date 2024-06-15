@@ -14,7 +14,7 @@ export interface Case {
   export interface CaseCreate {
     id: string;
     number: number;
-    YearDate: Date;
+    Year: Date;
     litigationDegree: string;
     finalVerdict: string;
     LawyerIds:string[]

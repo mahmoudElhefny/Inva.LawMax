@@ -27,7 +27,7 @@ export class CreateCaseComponent implements OnChanges,OnInit{
   ngOnInit(): void {
     this.caseForm = this.fb.group({
       number: ['', Validators.required],
-      YearDate: ['', Validators.required],
+      year: ['', Validators.required],
       litigationDegree: ['', Validators.required],
       finalVerdict: ['', Validators.required],
       lawyerIds:[[]]

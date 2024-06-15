@@ -16,7 +16,7 @@
       <tbody>
         <tr *ngFor="let caseItem of cases">
           <td>{{ caseItem.number }}</td>
-          <td>{{ caseItem.yearDate }}</td>
+          <td>{{ caseItem.yearDate | date: 'yyyy-MM-dd' }}</td>
           <td>{{ caseItem.litigationDegree }}</td>
           <td>{{ caseItem.finalVerdict }}</td>
           <td>

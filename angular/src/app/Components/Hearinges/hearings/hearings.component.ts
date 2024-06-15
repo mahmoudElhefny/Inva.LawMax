@@ -25,7 +25,7 @@ export class HearingsComponent {
     maxResultCount: 3,
     sorting: 'number'
   };
-  constructor(private snackBar: MatSnackBar,private _hearingService:HearingService,
+  constructor(private _hearingService:HearingService,
     ) {
 
   }
